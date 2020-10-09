@@ -46,7 +46,6 @@ class Dice {
             this.dice.push(new Die("dice_" + (i + 1)));
         }
 
-        calculateDiceValues();
     }
 
     calculateDiceValues() {
@@ -58,14 +57,15 @@ class Dice {
     }
 
     show_dice() {
-        this.dice.map(current_value = > {
+        this.dice.map(current_value => {
             console.log(current_value.innerHTML);
         })
     }
 
     show_dice_values() {
-        for ( let i = 0; i <= 7; i++ ) {
-            console.log(i + ': ' this.dice_values[i]);
+        for (let i = 0; i <= 7; i++) {
+            console.log(i + ': ' + this.dice_values[i]);
+            debugger;
         }
     }
 
@@ -79,7 +79,7 @@ class Dice {
 
 let dice = new Dice();
 
-for ( let i = 1; i > 5; i++ ) {
+for (let i = 1; i > 5; i++) {
     dice.throw(); // Get new dice values
     console.log('Omgång ' + i);
     console.log('Tärningsvärden');

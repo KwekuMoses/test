@@ -1,6 +1,6 @@
 /*
 
-Skriv en funktion som tar en sträng som parameter, gör om alla tecken som inte är a-z (stora eller små) till HTML-entiteter och returnerar resultatet.
+Skriv en funktion som tar en sträng som parameter, gör om alla tecken som inte är a-z (stora eller små) till HTML-entiteter och returnera resultatet.
 
 Läs mer om HTML-entiteter här: https://dev.w3.org/html5/html-author/charref
 
@@ -16,9 +16,26 @@ Alla tecken som inte är a-z eller någon av ovanstående (t ex kommatecken, pun
 
 */
 
-function safe_string() {
+function safe_string(string) {
 
+    //return (escape(string))
+
+    return string.replace(/</g, "&lt;").replace(/>/g, "&gt").replace(/å/g, "&aring;").replace(/ä/g, "&Auml;").replace(/ö/g, "&Ouml;").replace(/'/, "&apos;")
+
+
+    /*  mapObj = {
+          "<": "&lt;",
+          ">": "&gt",
+          "å": "&aring;",
+          "ä": "&Auml;",
+          "ö": "&Ouml;",
+          "'": "&rsquo;",
+      };
+      string = string.replace(/<|>|å|ä|ö|'/gi, function (matched) {
+          return mapObj[matched];
+      });*/
 }
 
-console.log( safe_string( "<h1>Sjörövare, O'hoj</h1>" ) ); // Expected output: &lt;h1&gt;Sj&ouml;r&ouml;vare O&apos;hoj&lt;/h1&gt;
+console.log(safe_string("<h1>Sjörövare, O'hoj</h1>")); // Expected output: &lt;h1&gt;Sj&ouml;r&ouml;vare O&apos;hoj&lt;/h1&gt;
+
 
